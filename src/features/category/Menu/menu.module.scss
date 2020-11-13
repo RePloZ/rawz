@@ -1,0 +1,50 @@
+@import '../../../styles/module/index';
+
+.navbar {
+    width: 5rem;
+    height: 100vh;
+    position: fixed;
+    background-color: $primary-dark;
+    transition: width 200ms ease;
+
+    &:hover {
+        width: 16rem; 
+        .nav .item .link .text {
+            display: block;
+        }
+    }
+    
+
+    .nav {
+        height: 100%;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        
+        .item {
+            width: 100%;
+            
+            .link {
+                display: flex;
+                align-items: center;
+                height: 5rem;
+                color: $secondary-light;
+                text-decoration: none;
+
+                .svg {
+                    max-width: 2rem;
+                    margin: 1.5rem;
+                }
+                
+                .text {
+                    display: none;
+                    margin-left: 1rem;
+                }
+            }
+        }
+    }    
+}
