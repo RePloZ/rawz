@@ -1,5 +1,5 @@
 import { v4 as uuid } from "uuid";
-import { Article } from "features/articles/articlesSlice";
+import { Article } from "features/article/articlesSlice";
 
 export const sampleArticle : () => Article = () => ({
     _id: uuid(),

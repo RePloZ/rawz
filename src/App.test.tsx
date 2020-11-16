@@ -7,7 +7,7 @@ import { Router } from "react-router-dom";
 import { createMemoryHistory } from 'history'
 
 import '@testing-library/jest-dom/extend-expect'
-import { setArticles } from 'features/articles/articlesSlice';
+import { setArticles } from 'features/article/articlesSlice';
 import { sampleArticle } from 'utils/sample';
 
 describe('Application', () => {
