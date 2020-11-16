@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import styles from "./menu.module.scss";
 import { useDispatch } from "react-redux";
 import { Horse, Briefcase, Monitor, Heartbeat, GameController, ChartPie, Newspaper } from "phosphor-react";
-import { setAsyncCategory } from "../newsSlice";
+import { fetchNewsByCategory } from "../newsSlice";
 import { AppThunk } from "app/store";
 import { useHistory } from "react-router-dom";
 import { CATEGORIES } from "app/constants";
@@ -14,12 +14,12 @@ interface Item {
 }
 
 const items :Item[] = [
-    { action: () => setAsyncCategory(CATEGORIES.BUSINESS) , title: "Business", SVG: (props) => <Briefcase {...props} /> },
-    { action: () => setAsyncCategory(CATEGORIES.SCIENCE) , title: "Science", SVG: (props) => <ChartPie {...props} /> },
-    { action: () => setAsyncCategory(CATEGORIES.ENTERTAINMENT) , title: "Entertainment", SVG: (props) => <Monitor {...props} /> },
-    { action: () => setAsyncCategory(CATEGORIES.SPORTS) , title: "Sports", SVG: (props) => <Horse {...props} /> },
-    { action: () => setAsyncCategory(CATEGORIES.HEALTH) , title: "Hospital", SVG: (props) => <Heartbeat {...props} /> },
-    { action: () => setAsyncCategory(CATEGORIES.TECHNOLOGY) , title: "Technology", SVG: (props) => <GameController {...props} /> },
+    { action: () => fetchNewsByCategory(CATEGORIES.BUSINESS) , title: "Business", SVG: (props) => <Briefcase {...props} /> },
+    { action: () => fetchNewsByCategory(CATEGORIES.SCIENCE) , title: "Science", SVG: (props) => <ChartPie {...props} /> },
+    { action: () => fetchNewsByCategory(CATEGORIES.ENTERTAINMENT) , title: "Entertainment", SVG: (props) => <Monitor {...props} /> },
+    { action: () => fetchNewsByCategory(CATEGORIES.SPORTS) , title: "Sports", SVG: (props) => <Horse {...props} /> },
+    { action: () => fetchNewsByCategory(CATEGORIES.HEALTH) , title: "Hospital", SVG: (props) => <Heartbeat {...props} /> },
+    { action: () => fetchNewsByCategory(CATEGORIES.TECHNOLOGY) , title: "Technology", SVG: (props) => <GameController {...props} /> },
 ]
 
 interface ButtonProps {
@@ -32,7 +32,7 @@ const Button: FunctionComponent<ButtonProps> = ({action, children, title, ...pro
     const history = useHistory();
 
     const handleClick = () => {
-        history.push("/");
+        history?.push("/");
         dispatch(action())
     }
 
@@ -44,11 +44,11 @@ const Button: FunctionComponent<ButtonProps> = ({action, children, title, ...pro
     </div>)
 }
 
-export const Menu: FunctionComponent = () => {
+const Menu: FunctionComponent = () => {
     return (<div className={styles.navbar}>
         <ul className={styles.nav}>
             <li className={styles.item}>
-                <Button action={() => setAsyncCategory(CATEGORIES.ALL)} title="Accueil" >
+                <Button action={() => fetchNewsByCategory(CATEGORIES.ALL)} title="Accueil" >
                     <Newspaper size={32} weight="fill" />                
                 </Button>
             </li>
@@ -61,3 +61,5 @@ export const Menu: FunctionComponent = () => {
         </ul>
     </div>);
 }
+
+export default Menu 

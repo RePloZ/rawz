@@ -5,8 +5,8 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import { Menu } from "features/news/Menu/Menu"
-import { ArticleList } from "features/news/Articles/Articles"
+import Menu from "features/news/Menu"
+import ArticleList from "features/news/ArticleList"
 import Info from 'features/news/Info';
 
 function App() {

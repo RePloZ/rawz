@@ -8,9 +8,6 @@ import styles from "./info.module.scss";
 const Info = () => {
     let { id } = useParams();
 
-    console.log(id);
-    console.log(useSelector(selectArticles));
-    
     const article = useSelector(selectArticles).find(article => id === article._id );
     
     return (article ?

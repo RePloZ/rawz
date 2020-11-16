@@ -55,7 +55,7 @@ export const { setArticles, setMessage } = categorySlice.actions
 // can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
 // will call the thunk with the `dispatch` function as the first argument. Async
 // code can then be executed and other actions can be dispatched
-export const setAsyncCategory = (category: CATEGORIES): AppThunk => dispatch => {
+export const fetchNewsByCategory = (category: CATEGORIES): AppThunk => dispatch => {
     axios.get(ENDPOINT_API(category))
         .then(response => {
             const articles: Article[] = response.data.articles.map((article: IncommingResponse) => ({

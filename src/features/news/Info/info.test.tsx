@@ -9,11 +9,11 @@ import { store } from 'app/store';
 import { Route, Router } from 'react-router-dom';
 
 describe('Article Information', () => {
-    xit('should render the info of the text', () => {
+    it('should render the info of the text', () => {
         const history = createMemoryHistory()
 
         const articles = [sampleArticle()]
-        setArticles(articles);
+        store.dispatch(setArticles(articles))
 
         const route = `/article/${articles[0]._id}`
         history.push(route)
@@ -26,6 +26,6 @@ describe('Article Information', () => {
             </Router>
         </Provider>)
 
-        expect(getByText(/Title/y)).toBeInTheDocument();
+        expect(getByText(/Titre/y)).toBeInTheDocument();
     })
 })

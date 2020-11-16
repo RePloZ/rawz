@@ -17,7 +17,7 @@ const ArticleComponent = ({ article }: any) => {
     </Link>)
 }
 
-export const ArticleList: FunctionComponent = () => {
+const ArticleList: FunctionComponent = () => {
     const articles = useSelector(selectArticles);
     const message = useSelector(selectMessage)
     return (<div>
@@ -27,3 +27,5 @@ export const ArticleList: FunctionComponent = () => {
         }
     </div>)
 }
+
+export default ArticleList;
