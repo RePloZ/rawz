@@ -2,7 +2,6 @@ import {
     setArticles, 
     setMessage, 
 } from "./categorySlice";
-import { v4 as uuid } from "uuid";
 import thunk from "redux-thunk"
 import configureMockStore from "redux-mock-store";
 import fetchMock from 'fetch-mock';

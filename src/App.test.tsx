@@ -1,22 +1,14 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { Provider, useSelector } from 'react-redux';
+import { Provider } from 'react-redux';
 import { store } from './app/store';
 import App from './App';
-import { Router, useHistory } from "react-router-dom";
+import { Router } from "react-router-dom";
 import { createMemoryHistory } from 'history'
-import userEvent from '@testing-library/user-event'
 
 import '@testing-library/jest-dom/extend-expect'
-import { selectArticles, setArticles } from 'features/category/categorySlice';
-import { v4 as uuid } from 'uuid';
+import { setArticles } from 'features/category/categorySlice';
 import { sampleArticle } from 'utils/sample';
-
-function wait5second(callback: Function) {
-  setTimeout(() => {
-    callback();
-  }, 5000)
-}
 
 describe('Application', () => {
   it('should render without problem', () => {
