@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import styles from "./menu.module.scss";
 import { useDispatch } from "react-redux";
 import { Horse, Briefcase, Monitor, Heartbeat, GameController, ChartPie, Newspaper } from "phosphor-react";
-import { setAsyncCategory } from "../articlesSlice";
+import { setAsyncCategory } from "../newsSlice";
 import { AppThunk } from "app/store";
 import { useHistory } from "react-router-dom";
 import { CATEGORIES } from "app/constants";

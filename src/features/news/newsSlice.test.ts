@@ -1,7 +1,7 @@
 import { 
     setArticles, 
     setMessage, 
-} from "./articlesSlice";
+} from "./newsSlice";
 import thunk from "redux-thunk"
 import configureMockStore from "redux-mock-store";
 import fetchMock from 'fetch-mock';
@@ -16,7 +16,7 @@ describe('actions', () => {
     })
 
     it('should create an action to set todo', () => {
-        const sampleArticles = [sampleArticle]
+        const sampleArticles = [sampleArticle()]
 
         const expectedAction = {
             type: "category/setArticles",

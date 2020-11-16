@@ -2,7 +2,7 @@ import { ArrowLeft } from "phosphor-react";
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom"
-import { selectArticles } from "../articlesSlice";
+import { selectArticles } from "../newsSlice";
 import styles from "./info.module.scss";
 
 const Info = () => {

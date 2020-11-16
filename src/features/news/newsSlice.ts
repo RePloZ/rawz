@@ -75,7 +75,7 @@ export const setAsyncCategory = (category: CATEGORIES): AppThunk => dispatch => 
         })
 };
 
-export const selectMessage = (state: RootState) => state.category.message
-export const selectArticles = (state: RootState) => state.category.articles
+export const selectMessage = (state: RootState) => state.news.message
+export const selectArticles = (state: RootState) => state.news.articles
 
 export default categorySlice.reducer;
