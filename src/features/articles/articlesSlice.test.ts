@@ -1,7 +1,7 @@
 import { 
     setArticles, 
     setMessage, 
-} from "./categorySlice";
+} from "./articlesSlice";
 import thunk from "redux-thunk"
 import configureMockStore from "redux-mock-store";
 import fetchMock from 'fetch-mock';

@@ -2,13 +2,17 @@ import { ArrowLeft } from "phosphor-react";
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom"
-import { selectArticles } from "../categorySlice";
+import { selectArticles } from "../articlesSlice";
 import styles from "./info.module.scss";
 
 const Info = () => {
     let { id } = useParams();
 
+    console.log(id);
+    console.log(useSelector(selectArticles));
+    
     const article = useSelector(selectArticles).find(article => id === article._id );
+    
     return (article ?
         <div>
             <Link className={styles.retour} to="/">

@@ -7,7 +7,7 @@ import { Router } from "react-router-dom";
 import { createMemoryHistory } from 'history'
 
 import '@testing-library/jest-dom/extend-expect'
-import { setArticles } from 'features/category/categorySlice';
+import { setArticles } from 'features/articles/articlesSlice';
 import { sampleArticle } from 'utils/sample';
 
 describe('Application', () => {
@@ -22,7 +22,6 @@ describe('Application', () => {
   })
 
   it('should render Application and navigate correctly', () => {
-    const history = createMemoryHistory()
 
     const { getByText } = render(
       <Provider store={store}>
@@ -33,24 +32,5 @@ describe('Application', () => {
     )
   
     expect(getByText(/catégorie/i)).toBeInTheDocument()
-  })
-
-  xit('should render an article properly', () => {
-    const history = createMemoryHistory()
-
-    const { getByText } = render(
-      <Provider store={store}>
-        <Router history={history}>
-          <App />
-        </Router>
-      </Provider>
-    )
-
-    const articles = new Array(5).fill("").map(() => sampleArticle())
-    setArticles(articles);
-    
-    history.push(`/article/${articles[0]._id}`);
-
-    expect(getByText(/Titre/i)).toBeInTheDocument();
   })
 })

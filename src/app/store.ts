@@ -1,9 +1,9 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import categoryReducer from 'features/category/categorySlice'
+import articlesReducer from 'features/articles/articlesSlice'
 
 export const store = configureStore({
   reducer: {
-    category: categoryReducer
+    articles: articlesReducer
   },
 });
 

@@ -5,9 +5,9 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import { Menu } from "features/category/Menu/Menu"
-import { ArticleList } from "features/category/Articles/Articles"
-import Info from 'features/category/Info';
+import { Menu } from "features/articles/Menu/Menu"
+import { ArticleList } from "features/articles/Articles/Articles"
+import Info from 'features/articles/Info';
 
 function App() {
   return (<Router>
