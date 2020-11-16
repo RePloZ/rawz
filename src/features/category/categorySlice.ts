@@ -1,18 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { CATEGORIES, ENDPOINT_API } from 'app/constants';
 import { AppThunk, RootState } from "app/store";
 import axios from 'axios';
 import { v4 as uuid } from "uuid";
-
-export enum CATEGORIES {
-    ALL = "",
-    BUSINESS = "business",
-    ENTERTAINMENT = "entertainment",
-    HEALTH = "health",
-    SCIENCE = "science",
-    SPORTS = "sports",
-    TECHNOLOGY = "technology"
-}
-
 export interface Article {
     _id: string,
     title : string,
@@ -24,15 +14,13 @@ export interface Article {
 }
 
 interface CategoryState {
-    category: string,
     articles: Article[],
-    error: string
+    message: string
 }
 
 const initialState: CategoryState = {
-    category: "",
     articles: [],
-    error: "Veuillez sélectionner une catégorie"
+    message: "Veuillez sélectionner une catégorie"
 };
 
 export interface IncommingResponse {
@@ -55,28 +43,27 @@ export const categorySlice = createSlice({
         setArticles: (state, action:PayloadAction<Article[]>) => {
             state.articles = action.payload;
         },
-        setError: (state, action:PayloadAction<string>) => {
-            state.error = action.payload
+        setMessage: (state, action:PayloadAction<string>) => {
+            state.message = action.payload
         }
     }
 })
 
-export const { setArticles, setError } = categorySlice.actions 
+export const { setArticles, setMessage } = categorySlice.actions 
 
 // The function below is called a thunk and allows us to perform async logic. It
 // can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
 // will call the thunk with the `dispatch` function as the first argument. Async
 // code can then be executed and other actions can be dispatched
 export const setAsyncCategory = (category: CATEGORIES): AppThunk => dispatch => {
-    const url = `http://newsapi.org/v2/top-headlines?country=fr&apiKey=${process.env.REACT_APP_API_KEY}&category=${category}`;
-    axios.get(url)
+    axios.get(ENDPOINT_API(category))
         .then(response => {
             const articles: Article[] = response.data.articles.map((article: IncommingResponse) => ({
                 _id: uuid(),
                 title: article.title,
                 image: article.urlToImage,
                 description: article.description,
-                author: article.source.name || "Aucune Source Trouvé",
+                author: article.source.name || "Aucune Source",
                 publishedAt: article.publishedAt,
                 content: article.content
             }))
@@ -84,11 +71,11 @@ export const setAsyncCategory = (category: CATEGORIES): AppThunk => dispatch => 
         })
         .catch(error => {
             console.error(error);
-                dispatch(setError("Veuillez insérez votre clé d'API"));
+                dispatch(setMessage("Veuillez insérez votre clé d'API"));
         })
 };
 
-export const selectError = (state: RootState) => state.category.error
+export const selectMessage = (state: RootState) => state.category.message
 export const selectArticles = (state: RootState) => state.category.articles
 
 export default categorySlice.reducer;
