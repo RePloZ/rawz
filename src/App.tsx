@@ -5,9 +5,9 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import Menu from "features/news/Menu"
-import ArticleList from "features/news/ArticleList"
-import Info from 'features/news/Info';
+import Menu from "components/Menu"
+import ArticleList from "components/ArticleList"
+import Info from "components/Info";
 
 function App() {
   return (<Router>
