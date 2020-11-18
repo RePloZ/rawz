@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { useSelector } from "react-redux";
-import { selectArticles, Article, selectMessage } from "../newsSlice";
+import { selectArticles, Article, selectMessage } from "features/news/newsSlice";
 import styles from "./article.module.scss";
 import { Link } from "react-router-dom";
 import { v4 as uuid } from "uuid";
