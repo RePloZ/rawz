@@ -1,0 +1,48 @@
+@import 'styles/module/index';
+
+.item {
+    
+    display: flex;
+    margin: 1rem 2rem;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    align-items: center;
+    
+    &.border {
+        
+        &:hover { background-color: #F2F8F7; }
+        
+        border: black solid 1px;
+        border-radius: 10px;
+        transition: background-color 200ms ease-in-out;
+        text-decoration: none;    
+    }
+    
+}
+
+.none { display: none; }
+
+.description {
+    margin: 2rem;
+    padding: 2rem;
+}
+
+.date{
+    color: $primary;
+}
+
+.title{
+    margin: 0rem 2rem;
+    padding: 0rem 2rem;
+}
+
+.image {
+    max-width: 30%;
+    height: auto;
+    border-radius: 10px;
+    margin-right: 2rem;
+}
+
+.text {
+    
+}

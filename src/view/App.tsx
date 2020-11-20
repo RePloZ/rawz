@@ -6,19 +6,23 @@ import {
   Route
 } from "react-router-dom";
 import Menu from "components/Menu"
-import ArticleList from "components/ArticleList"
-import Info from "components/Info";
+import NotFound from './NotFound';
+import FilterArticle from "./FilterArticle";
+import ListArticle from "./ListArticle";
 
 function App() {
   return (<Router>
     <Menu />
     <main>
     <Switch>
-      <Route path="/article/:id">
-        <Info />
+      <Route path="/404">
+        <NotFound />
       </Route>
-      <Route path="/" >
-        <ArticleList />
+      <Route path="/article/:id" >
+        <FilterArticle />
+      </Route>
+      <Route path="" >
+        <ListArticle />        
       </Route>
     </Switch> 
     </main>

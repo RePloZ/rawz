@@ -1,0 +1,10 @@
+@import './module/index';
+
+.retour {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    svg {
+        padding-right: 1rem;
+    }
+}

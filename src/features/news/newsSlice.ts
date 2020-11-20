@@ -2,8 +2,9 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { CATEGORIES, ENDPOINT_API } from 'app/constants';
 import { AppThunk, RootState } from "app/store";
 import axios from 'axios';
+import { Action } from 'history';
 import { v4 as uuid } from "uuid";
-export interface Article {
+export interface Information {
     _id: string,
     title : string,
     image : string, 
@@ -14,7 +15,7 @@ export interface Article {
 }
 
 interface CategoryState {
-    articles: Article[],
+    articles: Information[],
     message: string
 }
 
@@ -40,7 +41,7 @@ export const categorySlice = createSlice({
     name: "category",
     initialState,
     reducers: {
-        setArticles: (state, action:PayloadAction<Article[]>) => {
+        setArticles: (state, action:PayloadAction<Information[]>) => {
             state.articles = action.payload;
         },
         setMessage: (state, action:PayloadAction<string>) => {
@@ -55,10 +56,13 @@ export const { setArticles, setMessage } = categorySlice.actions
 // can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
 // will call the thunk with the `dispatch` function as the first argument. Async
 // code can then be executed and other actions can be dispatched
-export const fetchNewsByCategory = (category: CATEGORIES): AppThunk => dispatch => {
+export const fetchNewsByCategory = (category : CATEGORIES = CATEGORIES.ALL): AppThunk => dispatch => {
+    //Clear all articles
+    setArticles([]);
+
     axios.get(ENDPOINT_API(category))
         .then(response => {
-            const articles: Article[] = response.data.articles.map((article: IncommingResponse) => ({
+            const articles: Information[] = response.data.articles.map((article: IncommingResponse) => ({
                 _id: uuid(),
                 title: article.title,
                 image: article.urlToImage,
