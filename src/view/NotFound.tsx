@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { Link, useRouteMatch } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const NotFound : FunctionComponent = () => (<>
     <h1>Page Not Found</h1>

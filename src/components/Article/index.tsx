@@ -24,7 +24,7 @@ const Article : FunctionComponent<articleProps> = ({fullscreen = false, article}
         { fullscreen ? titleDate : null }
         </div>
         <div className={classNames(styles.item, fullscreen ? "" : styles.border)} onClick={() => !fullscreen && history.push(`/article/${article._id}`)}>
-            <img src={article.image} className={styles.image} />
+            <img src={article.image} className={styles.image} alt={article.title} />
             <div className={styles.text}>
                 { fullscreen ? null : titleDate }
                 <p className={description} hidden={!fullscreen}>{article.description}</p>

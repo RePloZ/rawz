@@ -1,18 +1,13 @@
 import React from 'react';
-import { getByTestId, render } from '@testing-library/react';
-import { createMemoryHistory } from "history"
+import { render } from '@testing-library/react';
 import { Provider } from "react-redux"
 import { sampleArticle } from "utils/sample"
 import { setArticles } from "features/news/newsSlice"
 import { store } from 'app/store';
-import { Route, Router } from 'react-router-dom';
-import Article from "../components/Article/index";
 import ListArticle from 'view/ListArticle';
 
 describe('List Article Component', () => {
     it('should render the information in fullscreen', () => {
-        const history = createMemoryHistory()
-
         const articles = new Array(5).fill(" ").map(() => sampleArticle())
         articles[0].title = "Titre1";
         articles[1].title = "Titre2";

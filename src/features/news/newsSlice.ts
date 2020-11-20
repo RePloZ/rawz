@@ -2,7 +2,6 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { CATEGORIES, ENDPOINT_API } from 'app/constants';
 import { AppThunk, RootState } from "app/store";
 import axios from 'axios';
-import { Action } from 'history';
 import { v4 as uuid } from "uuid";
 export interface Information {
     _id: string,

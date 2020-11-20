@@ -1,6 +1,6 @@
 import React from 'react';
-import { render, fireEvent, screen } from '@testing-library/react'
-import { Provider, useSelector } from 'react-redux'
+import { render, fireEvent } from '@testing-library/react'
+import { Provider } from 'react-redux'
 import Menu from '.'
 import { store } from 'app/store';
 

@@ -7,7 +7,7 @@ import { CATEGORIES } from "app/constants";
 const ListArticle : FunctionComponent = () => {
     const articles = useSelector(selectArticles);
 
-    if (articles.length == 0) {
+    if (articles.length === 0) {
         fetchNewsByCategory(CATEGORIES.ALL)
     }
 

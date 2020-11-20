@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { Provider, useSelector } from 'react-redux';
+import { Provider } from 'react-redux';
 import { store } from 'app/store';
 import App from 'view/App';
 import { Router } from "react-router-dom";
@@ -8,7 +8,6 @@ import { createMemoryHistory } from 'history'
 
 import '@testing-library/jest-dom/extend-expect'
 import { setArticles } from 'features/news/newsSlice';
-import { CATEGORIES } from 'app/constants';
 import { sampleArticle } from 'utils/sample';
 
 describe('Application', () => {
